@@ -1,0 +1,65 @@
+#include<stdio.h>
+#include <stdlib.h>
+struct SLLnode
+{
+    int data;
+    struct SLLnode* next;
+};
+struct SLLnode* head=NULL;
+struct SLLnode* last=NULL;
+struct SLLnode* createnode()
+{
+    struct SLLnode* nn=(struct SLLnode*)malloc(sizeof(struct SLLnode));
+    scanf("%d",&nn->data);
+    nn->next=NULL;    
+    return nn;
+}
+void insertAtFirst()
+{
+    struct SLLnode* temp=createnode();
+    if(head==NULL)
+    {
+        head=temp;
+        last=temp;
+    }
+    else
+    {
+        temp->next=head;
+        head=temp;
+    }
+}
+void insertAtLast()
+{
+    struct SLLnode* temp=createnode();
+    if(head==NULL)
+    {
+        head=temp;
+        last=temp;
+    }
+    else
+    {
+        struct SLLnode* k=head;
+        while(k->next!=NULL)
+        {
+            k=k->next;
+        }
+        k->next=temp;
+        //since we have last we can do last->next=temp. But i just tried :)
+        last=temp;
+    }
+}
+int main()
+{
+    int n,val,i;
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        insertAtLast();//(or) insertAtFirst();
+    }
+    struct SLLnode* t=head;
+    while(t!=NULL)
+    {
+        printf("%d->",t->data);
+        t=t->next;
+    }
+}
