@@ -1,0 +1,30 @@
+{/*
+// Representation of a node 
+struct IntNode { 
+    int data; 
+    struct IntNode* next; 
+}; 
+*/
+struct IntNode* loopStartingNode(struct IntNode* head) {
+    struct IntNode* t1=head;
+    struct IntNode* t2=head;
+    struct IntNode* k=head;
+    while(t1!=NULL && t1->next!=NULL && t2!=NULL)
+    {
+        t1=t1->next;
+        t2=t2->next;
+        if(t1!=NULL)
+            t1=t1->next;
+        if(t1==t2)
+        {
+            t2=head;
+            while(t1!=t2)
+            {
+                t1=t1->next;
+                t2=t2->next;
+            }
+            return t2;
+        }
+    }
+    return NULL;
+}
