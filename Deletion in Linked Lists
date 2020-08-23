@@ -1,0 +1,54 @@
+struct SLLnode
+{
+    int data;
+    struct SLLnode* next;
+};
+struct SLLnode* head=NULL;
+struct SLLnode* last=NULL;
+struct SLLnode* createnode()
+{
+    struct SLLnode* nn=(struct SLLnode*)malloc(sizeof(struct SLLnode));
+    scanf("%d",&nn->data);
+    nn->next=NULL;    
+    return nn;
+}
+struct SLLnode* deleteAtFirst()
+{
+    if(head==NULL)
+    {
+        printf("empty");
+    }
+    else
+    {
+        struct SLLnode* temp=head;
+        head=head->next;
+        free(temp);
+    }
+}
+struct SLLnode* deleteAtLast()
+{
+    if(head==NULL)
+    {
+        printf("empty");
+    }
+    else
+    {
+        struct SLLnode* temp=
+    }
+}
+int main()
+{
+    int n,val,i;
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        insertAtLast();
+    }
+    deleteAtFirst();//(or)deleteAtFirst();
+    struct SLLnode* t=head;
+    while(t!=NULL)
+    {
+        printf("%d->",t->data);
+        t=t->next;
+    }
+}
